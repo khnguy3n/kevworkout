@@ -14,8 +14,9 @@ const Edit = () => {
           {(workout, index) => (
             <li>
               <div class="todo-header">
+                <div>{workout.pos}</div>
                 <span>
-                  {workout.pos} - {workout.name}
+                   {workout.name}
                 </span>
                 <button>
                   <i class="fas fa-trash trash-icon"></i>
