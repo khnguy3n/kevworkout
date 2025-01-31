@@ -4,57 +4,82 @@ ul.todo-list {
   padding: 0;
   margin: 0;
   width: 100%;
-  margin: 20px auto;
+  margin: 2% auto;
   font-family: Arial, sans-serif;
 }
 
 /* Style for each list item */
 ul.todo-list li {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   padding: 10px;
   margin: 5px 0;
-  background-color: #1e1c32;
+  background-color: #2d2b35;
   border-radius: 5px;
   transition: background-color 0.3s;
-  font-size: 16px;
-  justify-content: space-between; /* Keeps trash icon at the right */
-  cursor: pointer; /* Cursor shows clickable action on the list item */
+  font-size: 5vw;
+}
+
+/* Header of the list item (clickable part) */
+ul.todo-list li .todo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer; /* Makes it clickable */
 }
 
 /* Style for item text */
 ul.todo-list li span {
-  font-size: 5vw;
-  color: #ffffff;
   flex-grow: 1;
   display: inline-block;
-  transition:
-    text-decoration 0.3s,
-    color 0.3s;
 }
 
 /* Strikethrough effect for completed items */
+/*
 ul.todo-list li.completed span {
   text-decoration: line-through;
-  color: #bbb; /* Light gray color for completed items */
+  color: #000;
 }
+*/
 
 /* Hover effect for each list item */
 ul.todo-list li:hover {
-  background-color: #d4bfff;
+  background-color: #ffe6ba;
   color: #000000;
 }
 
-/* Style for trash icon */
+/* Trash icon style */
 ul.todo-list li .trash-icon {
   cursor: pointer;
-  color: #ffffff;
+  color: #c22357;
   font-size: 2vw;
+  margin: 0 2% 0 0;
   transition: color 0.3s;
-  margin: 0 5% 0 0;
 }
 
 /* Trash icon hover effect */
 ul.todo-list li .trash-icon:hover {
-  color: #f02e6f;
+  color: #f02e7f;
 }
+
+/* Initially hide the details section */
+ul.todo-list li .todo-details {
+  display: none; /* Hide the content initially */
+  padding-top: 10px;
+  padding-left: 20px;
+  transition: max-height 0.3s ease-out;
+}
+
+/* Show details when the item is expanded */
+ul.todo-list li.open .todo-details {
+  display: block;
+}
+
+/* Optional: Strikethrough effect for completed tasks */
+/*
+ul.todo-list li.completed {
+  background-color: #8a889D;
+  color: #52515e;
+  text-decoration: line-through;
+}
+*/
