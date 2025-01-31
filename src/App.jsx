@@ -24,6 +24,7 @@ function App() {
           </a>
         </li>
       </ul>
+    //experiment
       <PWABadge />
     </>
   );

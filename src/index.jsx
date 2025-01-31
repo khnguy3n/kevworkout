@@ -4,6 +4,7 @@ import { Router } from "@solidjs/router";
 import "./index.css";
 import App from "./App.jsx";
 import Start from "./pages/start.jsx";
+import Edit from "./pages/Edit/edit.jsx";
 
 const root = document.getElementById("root");
 
@@ -16,7 +17,7 @@ const routes = [
   },
   {
     path: "/edit",
-    component: () => <h1>Edit!</h1>,
+    component: Edit,
   },
   {
     path: "/start",
