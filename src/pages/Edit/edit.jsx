@@ -1,11 +1,12 @@
 import { createSignal, For, createEffect } from "solid-js";
 import "./Edit.css";
+import EditForm from "./editForm.jsx";
 
 const Edit = () => {
   const [workouts, setWorkouts] = createSignal([
-    { name: "push ups", seconds: 30, pos: 0 },
-    { name: "pull ups", seconds: 20, pos: 11 },
-    { name: "plank", seconds: 10, pos: 2 },
+    { name: "push ups", dur: 30, pos: 0 },
+    { name: "pull ups", dur: 20, pos: 11 },
+    { name: "plank", dur: 10, pos: 2 },
   ]);
   return (
     <>
@@ -15,15 +16,10 @@ const Edit = () => {
             <li>
               <div class="todo-header">
                 <div>{workout.pos}</div>
-                <span>
-                   {workout.name}
-                </span>
-                <button>
-                  <i class="fas fa-trash trash-icon"></i>
-                </button>
+                <span>{workout.name}</span>
               </div>
               <div class="todo-details">
-                <p>Buy milk, bread, and eggs from the store.</p>
+                <EditForm />
               </div>
             </li>
           )}

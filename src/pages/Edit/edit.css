@@ -53,14 +53,14 @@ ul.todo-list li button {
   font-size: 0.1em;
   background-color: #f02e7f;
 
-  .trash-icon{
+  .trash-icon {
     color: #000;
     font-size: 2vw;
     margin: 0 2% 0 0;
     transition: color 0.3s;
   }
 
-  &:hover{
+  &:hover {
     background-color: #000;
 
     .trash-icon {
