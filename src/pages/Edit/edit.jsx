@@ -1,6 +1,7 @@
 import { createSignal, For, createEffect } from "solid-js";
 import "./Edit.css";
 import EditForm from "./editForm.jsx";
+import AddForm from "./addForm.jsx";
 
 const Edit = () => {
   const [workouts, setWorkouts] = createSignal([
@@ -13,7 +14,7 @@ const Edit = () => {
 
   return (
     <>
-      <button>add new</button>
+      <AddForm />
       <ul class="todo-list">
         <For each={workouts().sort((a, b) => a.pos - b.pos)}>
           {(workout, index) => (
