@@ -42,11 +42,16 @@ export default function EditForm(props) {
             required
           />
         </div>
-        <button type="submit" style="font-size: 14px; width: 20%;">Submit</button>
+        <button type="submit" style="font-size: 14px; width: 20%;">
+          Submit
+        </button>
       </form>
-      <button style="width:50%" onClick={() => {
-        props.onDelete(props.id)
-      }}>
+      <button
+        style="width:50%"
+        onClick={() => {
+          props.onDelete(props.id);
+        }}
+      >
         <i class="fas fa-trash trash-icon"></i>
       </button>
     </div>

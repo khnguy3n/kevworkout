@@ -4,21 +4,27 @@ import EditForm from "./editForm.jsx";
 import AddForm from "./addForm.jsx";
 
 const Edit = () => {
-  const [workouts, setWorkouts] = createSignal([
+  const astring = JSON.stringify([
     { name: "push ups", dur: 30, id: 0 },
     { name: "pull ups", dur: 20, id: 1 },
-    { name: "plank", dur: 10, id: 2 },
   ]);
+  const initialWorkouts = JSON.parse(localStorage.getItem("workouts") || "[]");
+  const [workouts, setWorkouts] = createSignal(initialWorkouts);
   const [activeWorkout, setActiveWorkout] = createSignal(-1);
 
   const createWorkout = (event) => {
     const newWorkoutId = workouts().length;
-    setWorkouts([...workouts(), {...event, id: newWorkoutId}]);
+    setWorkouts([...workouts(), { ...event, id: newWorkoutId }]);
   };
 
-  const onDelete = (idk) => {
-    console.log("inside parent onDelete",idk);
-  }
+  const onDelete = (workoutid) => {
+    const keep = workouts()
+      .filter((w) => w.id !== workoutid)
+      .map((aworkout, index) => {
+        return { ...aworkout, id: index };
+      });
+    setWorkouts(keep);
+  };
 
   return (
     <>
@@ -34,7 +40,7 @@ const Edit = () => {
                 <span>{workout.name}</span>
               </div>
               <div class="todo-details">
-                <EditForm id={workout.id} onDelete={onDelete}/>
+                <EditForm id={workout.id} onDelete={onDelete} />
               </div>
             </li>
           )}
