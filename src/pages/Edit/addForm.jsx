@@ -1,7 +1,7 @@
 import { createSignal } from "solid-js";
 import "./addForm.css";
 
-function AddForm() {
+function AddForm(props) {
   let dialogRef;
   const [formData, setFormData] = createSignal({ name: "", dur: "" });
   const [isOpen, setIsOpen] = createSignal(false);
@@ -32,7 +32,8 @@ function AddForm() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            console.log("Form Submitted:", formData());
+            //console.log("Form Submitted:", formData());
+            props.create?.(formData());
             closeDialog();
           }}
           method="dialog"
@@ -48,7 +49,7 @@ function AddForm() {
             />
           </label>
           <label>
-            Duration (seconds):
+            Duration:
             <input
               type="number"
               value={formData().dur}

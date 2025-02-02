@@ -9,12 +9,15 @@ const Edit = () => {
     { name: "pull ups", dur: 20 },
     { name: "plank", dur: 10 },
   ]);
-
   const [activeWorkout, setActiveWorkout] = createSignal(-1);
+
+  const createWorkout = (event) => {
+    setWorkouts([...workouts(), event]);
+  };
 
   return (
     <>
-      <AddForm />
+      <AddForm create={createWorkout} />
       <ul class="todo-list">
         <For each={workouts().sort((a, b) => a.pos - b.pos)}>
           {(workout, index) => (
