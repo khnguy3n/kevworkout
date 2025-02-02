@@ -3,7 +3,6 @@ import "./editForm.css";
 
 export default function EditForm(props) {
   const [name, setName] = createSignal(props.curName || "");
-  const [pos, setPos] = createSignal(props.curPos || "");
   const [dur, setDur] = createSignal(props.curDur || "");
 
   /*
@@ -43,16 +42,7 @@ export default function EditForm(props) {
             required
           />
         </div>
-        <div>
-          <label>Order Position of Workout</label>
-          <input
-            type="number"
-            value={pos()}
-            onInput={(e) => setPos(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Submit</button>
+        <button type="submit" style="width: unset; width: 20%;">Submit</button>
       </form>
       <button style="width:50%">
         <i class="fas fa-trash trash-icon"></i>

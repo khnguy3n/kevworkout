@@ -5,6 +5,7 @@ form {
     flex-direction: column;
     align-items: baseline;
     font-size: 14px;
+    width: 40%;
 
     label {
       font-weight: 600;
@@ -28,11 +29,7 @@ form {
     }
   }
 
-  button {
-    font-size: 1em;
-
-    &.deletebtn {
+  button.deletebtn{
       width: 75%;
-    }
   }
 }
