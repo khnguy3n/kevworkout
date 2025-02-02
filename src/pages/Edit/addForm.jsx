@@ -4,9 +4,17 @@ import "./addForm.css";
 function AddForm() {
   let dialogRef;
   const [formData, setFormData] = createSignal({ name: "", dur: "" });
+  const [isOpen, setIsOpen] = createSignal(false);
 
-  const openDialog = () => dialogRef?.showModal();
-  const closeDialog = () => dialogRef?.close();
+  const openDialog = () => {
+    setIsOpen(true);
+    dialogRef?.showModal();
+  };
+
+  const closeDialog = () => {
+    setIsOpen(false);
+    dialogRef?.close();
+  };
 
   const handleClickOutside = (event) => {
     if (dialogRef && event.target === dialogRef) {
@@ -17,6 +25,8 @@ function AddForm() {
   return (
     <div>
       <button onClick={openDialog}>Add Workout</button>
+
+      {isOpen() && <div class="blurdialog"> hi hi </div>}
 
       <dialog ref={dialogRef} onClick={handleClickOutside}>
         <form
