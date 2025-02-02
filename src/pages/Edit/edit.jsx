@@ -16,6 +16,10 @@ const Edit = () => {
     setWorkouts([...workouts(), {...event, id: newWorkoutId}]);
   };
 
+  const onDelete = (idk) => {
+    console.log("inside parent onDelete",idk);
+  }
+
   return (
     <>
       <AddForm create={createWorkout} />
@@ -30,7 +34,7 @@ const Edit = () => {
                 <span>{workout.name}</span>
               </div>
               <div class="todo-details">
-                <EditForm />
+                <EditForm id={workout.id} onDelete={onDelete}/>
               </div>
             </li>
           )}
