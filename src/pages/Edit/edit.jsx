@@ -4,14 +4,6 @@ import EditForm from "./editForm.jsx";
 import AddForm from "./addForm.jsx";
 
 const Edit = () => {
-  /*
-  const astring = JSON.stringify([
-    { name: "push ups", dur: 30, id: 0 },
-    { name: "pull ups", dur: 20, id: 1 },
-  ]);
-  console.log(astring)
-  localStorage.setItem("workouts", astring);
-  */
   const initialWorkouts = JSON.parse(localStorage.getItem("workouts") || "[]");
   const [workouts, setWorkouts] = createSignal(initialWorkouts);
   const [activeWorkout, setActiveWorkout] = createSignal(-1);
@@ -19,7 +11,7 @@ const Edit = () => {
   createEffect(() => {
     localStorage.clear();
     const workoutsStr = JSON.stringify(workouts());
-    localStorage.setItem('workouts', workoutsStr)
+    localStorage.setItem("workouts", workoutsStr);
   });
 
   const createWorkout = (event) => {

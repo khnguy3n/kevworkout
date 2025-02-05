@@ -1,17 +1,9 @@
-import { createSignal, createEffect } from "solid-js";
+import { createSignal } from "solid-js";
 import "./editForm.css";
 
 export default function EditForm(props) {
   const [name, setName] = createSignal(props.curName || "");
   const [dur, setDur] = createSignal(props.curDur || "");
-
-  /*
-  createEffect(() => {
-    setName(props.curName || "");
-    setPos(props.curPos || -1);
-    setDur(props.curDur || 0);
-  });
-  */
 
   const handleSubmit = (e) => {
     e.preventDefault();

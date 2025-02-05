@@ -32,7 +32,6 @@ function AddForm(props) {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            //console.log("Form Submitted:", formData());
             props.create?.(formData());
             closeDialog();
           }}
