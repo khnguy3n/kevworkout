@@ -3,12 +3,10 @@ import { render } from "solid-js/web";
 import { Router } from "@solidjs/router";
 import "./index.css";
 import App from "./App.jsx";
-import Start from "./pages/start.jsx";
+import Start from "./pages/Start/start.jsx";
 import Edit from "./pages/Edit/edit.jsx";
 
 const root = document.getElementById("root");
-
-//render(() => <App />, root)
 
 const routes = [
   {
