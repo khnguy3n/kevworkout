@@ -3,3 +3,13 @@
   text-align: center;
   width: 60%;
 }
+
+div {
+  a {
+    font-size: 5rem;
+    &:hover {
+      color: #ffe6b3;
+      text-decoration: underline;
+    }
+  }
+}

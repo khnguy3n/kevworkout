@@ -24,6 +24,9 @@ function AddForm(props) {
 
   return (
     <div>
+      <a style="font-size:1rem;" href="/">
+        <button> Back </button>
+      </a>
       <button onClick={openDialog}>Add Workout</button>
 
       {isOpen() && <div class="blurdialog"> hi hi </div>}
