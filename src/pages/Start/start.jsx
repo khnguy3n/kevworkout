@@ -7,9 +7,9 @@ const Start = () => {
 
   createEffect(() => {
     const first = workouts()[0];
-    if(first){
+    if (first) {
       talkie(first.name);
-    }else{
+    } else {
       talkie();
     }
     startCountDown(first);
@@ -23,15 +23,17 @@ const Start = () => {
   };
 
   const startCountDown = (first) => {
-    if(!first) return;
+    if (!first) return;
 
     setTimeout(() => {
-      const msg = workouts()[1] ? `${first.name} done next workout ${workouts()[1].name}` : 'No more workouts';
-      talkie(msg)
+      const msg = workouts()[1]
+        ? `${first.name} done next workout ${workouts()[1].name}`
+        : "No more workouts";
+      talkie(msg);
       const [, ...rest] = workouts();
       setWorkouts(rest);
-    }, first.dur * 1000)
-  }
+    }, first.dur * 1000);
+  };
 
   return (
     <ol>
