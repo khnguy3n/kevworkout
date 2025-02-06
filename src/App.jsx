@@ -1,17 +1,10 @@
-import { createSignal } from "solid-js";
 import PWABadge from "./PWABadge.jsx";
-import "./App.css";
 
 function App() {
   return (
     <>
-      <h1>Workout Manager</h1>
-      <div>
-        <a href="/start">Start</a>
-      </div>
-      <div>
-        <a href="/edit">Edit Workouts</a>
-      </div>
+    <a href="/edit"><button>Edit</button></a>
+    <a href="/start"><button>Start</button></a>
       <PWABadge />
     </>
   );

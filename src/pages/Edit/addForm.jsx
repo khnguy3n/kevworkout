@@ -1,5 +1,5 @@
 import { createSignal } from "solid-js";
-import "./addForm.css";
+import EditNav from "./editNav.jsx";
 
 function AddForm(props) {
   let dialogRef;
@@ -24,6 +24,7 @@ function AddForm(props) {
 
   return (
     <div>
+      <EditNav/>
       <a style="font-size:1rem;" href="/">
         <button> Back </button>
       </a>

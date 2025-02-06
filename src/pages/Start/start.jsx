@@ -1,5 +1,4 @@
 import { createSignal, For, createEffect } from "solid-js";
-import "./start.css";
 
 const Start = () => {
   const initialWorkouts = JSON.parse(localStorage.getItem("workouts") || "[]");

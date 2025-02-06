@@ -1,5 +1,4 @@
 import { createSignal } from "solid-js";
-import "./editForm.css";
 
 export default function EditForm(props) {
   const [name, setName] = createSignal(props.curName || "");
