@@ -1,13 +1,14 @@
-import WorkoutListItem from "../../layouts/workoutListItem.jsx";
+import { createSignal, For, createEffect } from "solid-js";
+import "./start.css";
 
 const Start = () => {
+  const initialWorkouts = JSON.parse(localStorage.getItem("workouts") || "[]");
+  const [workouts, setWorkouts] = createSignal(initialWorkouts);
+
   return (
-    <div>
-      <ul role="list" class="divide-y divide-gray-100">
-        <WorkoutListItem name="new push up" timestr="10 seconds" />
-        <WorkoutListItem name="new2 push up" timestr="10 seconds" />
-      </ul>
-    </div>
+    <ol>
+      <For each={workouts()}>{(workout) => <li>{workout.name}</li>}</For>
+    </ol>
   );
 };
 

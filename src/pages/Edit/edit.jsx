@@ -1,5 +1,5 @@
 import { createSignal, For, createEffect } from "solid-js";
-import "./Edit.css";
+import "./edit.css";
 import EditForm from "./editForm.jsx";
 import AddForm from "./addForm.jsx";
 
