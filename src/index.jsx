@@ -3,8 +3,7 @@ import { render } from "solid-js/web";
 import { Router } from "@solidjs/router";
 import App from "./App.jsx";
 import Start from "./pages/Start/start.jsx";
-import Edit from "./pages/Edit/edit.jsx";
-import Adit from "./pages/Adit/adit.jsx";
+import Drag from "./pages/Edit/drag.jsx";
 
 const root = document.getElementById("root");
 
@@ -14,12 +13,8 @@ const routes = [
     component: App,
   },
   {
-    path: "/adit",
-    component: Adit,
-  },
-  {
     path: "/edit",
-    component: Edit,
+    component: Drag,
   },
   {
     path: "/start",
