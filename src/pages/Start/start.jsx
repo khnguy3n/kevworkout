@@ -1,12 +1,17 @@
 import { createSignal, For, createEffect } from "solid-js";
+import Dial from "./dial";
+import ListItem from "./listItem";
 
 const Start = () => {
   const initialWorkouts = JSON.parse(localStorage.getItem("workouts") || "[]");
   const [workouts, setWorkouts] = createSignal(initialWorkouts);
+  const [total, setTotal] = createSignal(0)
+  const [resetTrigger, setResetTrigger] = createSignal(0); // Forces reactivity
 
   createEffect(() => {
     const first = workouts()[0];
     if (first) {
+      setTotal(first.dur)
       talkie(first.name);
     } else {
       talkie();
@@ -35,9 +40,12 @@ const Start = () => {
   };
 
   return (
-    <ol>
-      <For each={workouts()}>{(workout) => <li>{workout.name}</li>}</For>
-    </ol>
+    <>
+      <Dial total={total()} reset={resetTrigger()} />
+      <ol>
+        <For each={workouts()}>{(workout) => <ListItem name={workout.name} dur={workout.dur} />}</For>
+      </ol>
+    </>
   );
 };
 
