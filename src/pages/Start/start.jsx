@@ -1,6 +1,7 @@
 import { createSignal, For, createEffect } from "solid-js";
 import Dial from "./dial";
 import ListItem from "./listItem";
+import NavBar from "./navBar";
 
 const Start = () => {
   const initialWorkouts = JSON.parse(localStorage.getItem("workouts") || "[]");
@@ -41,6 +42,7 @@ const Start = () => {
 
   return (
     <>
+      <NavBar />
       <Dial total={total()} reset={resetTrigger()} />
       <ol>
         <For each={workouts()}>{(workout) => <ListItem name={workout.name} dur={workout.dur} />}</For>
