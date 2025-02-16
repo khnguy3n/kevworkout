@@ -6,13 +6,13 @@ import NavBar from "./navBar";
 const Start = () => {
   const initialWorkouts = JSON.parse(localStorage.getItem("workouts") || "[]");
   const [workouts, setWorkouts] = createSignal(initialWorkouts);
-  const [total, setTotal] = createSignal(0)
+  const [total, setTotal] = createSignal(0);
   const [resetTrigger, setResetTrigger] = createSignal(0); // Forces reactivity
 
   createEffect(() => {
     const first = workouts()[0];
     if (first) {
-      setTotal(first.dur)
+      setTotal(first.dur);
       talkie(first.name);
     } else {
       talkie();
@@ -45,7 +45,9 @@ const Start = () => {
       <NavBar />
       <Dial total={total()} reset={resetTrigger()} />
       <ol>
-        <For each={workouts()}>{(workout) => <ListItem name={workout.name} dur={workout.dur} />}</For>
+        <For each={workouts()}>
+          {(workout) => <ListItem name={workout.name} dur={workout.dur} />}
+        </For>
       </ol>
     </>
   );

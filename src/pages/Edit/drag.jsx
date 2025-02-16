@@ -20,18 +20,21 @@ function Drag() {
 
   const handleWorkoutUpdate = (data) => {
     const { shouldRemove, ...updatedData } = data;
-    const unchanged = items().filter(x => x.id != data.id);
+    const unchanged = items().filter((x) => x.id != data.id);
     const newWorkouts = shouldRemove ? unchanged : [...unchanged, updatedData];
-    setItems(newWorkouts.toSorted((a, b) => a.id - b.id))
+    setItems(newWorkouts.toSorted((a, b) => a.id - b.id));
   };
 
   function handleDndEvent(e) {
     const { items: newItems } = e.detail;
-    const updateIds = newItems.map((item, index) => { return { ...item, id: index } }).toSorted((a, b) => a.id - b.id);
+    const updateIds = newItems
+      .map((item, index) => {
+        return { ...item, id: index };
+      })
+      .toSorted((a, b) => a.id - b.id);
     setItems(updateIds);
   }
   return (
-
     <>
       <div class="flex justify-center items-center">
         <div class="rounded-[20px] max-w-9/10 w-full !p-4 3xl:p-![18px] bg-white">
@@ -57,8 +60,14 @@ function Drag() {
             >
               <For each={items()}>
                 {(item) => (
-                  <EditForm name={item.name} dur={item.dur} workoutid={item.id} update={handleWorkoutUpdate} />
-                )}</For>
+                  <EditForm
+                    name={item.name}
+                    dur={item.dur}
+                    workoutid={item.id}
+                    update={handleWorkoutUpdate}
+                  />
+                )}
+              </For>
             </ul>
           </div>
         </div>
@@ -68,4 +77,3 @@ function Drag() {
 }
 
 export default Drag;
-

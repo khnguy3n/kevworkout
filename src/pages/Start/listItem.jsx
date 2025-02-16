@@ -1,4 +1,3 @@
-
 const ListItem = (props) => {
   let { name, dur: duration } = props;
 
@@ -7,7 +6,7 @@ const ListItem = (props) => {
       <span class="text-lg font-semibold text-peach-400">{name}</span>
       <span class="text-sm text-mooblu-200">Duration(seconds): {duration}</span>
     </li>
-  )
-}
+  );
+};
 
 export default ListItem;

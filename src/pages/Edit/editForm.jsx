@@ -1,10 +1,8 @@
 import { createSignal } from "solid-js";
 
 const EditForm = (props) => {
-
   let { name, dur } = props || { name: "", dur: 0 };
   const [isOpen, setIsOpen] = createSignal(false);
-
 
   const openDialog = () => {
     setIsOpen(true);
@@ -22,23 +20,26 @@ const EditForm = (props) => {
     event.preventDefault();
     const data = new FormData(event.target);
     const { name, dur } = Object.fromEntries(data.entries());
-    props.update?.({ name, dur: parseInt(dur), id: props.workoutid, shouldRemove: false });
+    props.update?.({
+      name,
+      dur: parseInt(dur),
+      id: props.workoutid,
+      shouldRemove: false,
+    });
     closeDialog();
   };
 
   const deleteWorkout = () => {
     props.update?.({ id: props.workoutid, shouldRemove: true });
     closeDialog();
-  }
+  };
 
   return (
     <>
       <li class="py-3 sm:py-4" onDblClick={openDialog}>
         <div class="flex items-center">
           <div class="flex-1 min-w-0 ms-4">
-            <p class="text-lg font-bold text-mart-900">
-              {name}
-            </p>
+            <p class="text-lg font-bold text-mart-900">{name}</p>
             <p class="text-sm text-mart-700 truncate">
               Duration: {dur} seconds
             </p>
@@ -94,12 +95,17 @@ const EditForm = (props) => {
                 </button>
               </div>
             </form>
-            <button class="px-4 py-2 bg-rose-600 text-white rounded-md" onClick={deleteWorkout}>Delete</button>
+            <button
+              class="px-4 py-2 bg-rose-600 text-white rounded-md"
+              onClick={deleteWorkout}
+            >
+              Delete
+            </button>
           </div>
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
 export default EditForm;

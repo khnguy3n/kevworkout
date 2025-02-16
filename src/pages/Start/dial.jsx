@@ -3,19 +3,20 @@ import { createEffect, createSignal, onCleanup } from "solid-js";
 const Dial = (props) => {
   const radius = 50;
   const circumference = 2 * Math.PI * radius;
-  const calcDashOff = (circumference, elapsed, total) => circumference - ((elapsed / total) * circumference);
+  const calcDashOff = (circumference, elapsed, total) =>
+    circumference - (elapsed / total) * circumference;
   const [elapsed, setElapsed] = createSignal(0);
   let interval;
   const resetDial = () => {
     if (interval) {
-      setElapsed(0)
+      setElapsed(0);
       clearInterval(interval);
     }
 
     interval = setInterval(() => {
-      const aNum = Math.min((elapsed() + 1), props.total);
-      setElapsed(aNum)
-      if (elapsed() === props.total) clearInterval(interval)
+      const aNum = Math.min(elapsed() + 1, props.total);
+      setElapsed(aNum);
+      if (elapsed() === props.total) clearInterval(interval);
     }, 1000);
   };
 
@@ -49,7 +50,11 @@ const Dial = (props) => {
             cx="60"
             cy="60"
             stroke-dasharray={circumference}
-            stroke-dashoffset={calcDashOff(circumference, elapsed(), props.total)}
+            stroke-dashoffset={calcDashOff(
+              circumference,
+              elapsed(),
+              props.total,
+            )}
             stroke-linecap="round"
             transform="rotate(-90 60 60)"
           />
