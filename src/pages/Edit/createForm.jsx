@@ -18,31 +18,35 @@ function CreateForm(props) {
     event.preventDefault();
     const data = new FormData(event.target);
     const { name, dur } = Object.fromEntries(data.entries());
-    props.create?.({ name, dur: parseInt(dur) });
+    props.create?.({ name, dur: Number.parseInt(dur) });
     closeDialog();
   };
 
   return (
     <>
       <button
+        type="button"
         onClick={openDialog}
-        class="flex items-center text-xl hover:cursor-pointer bg-gray-200 p-2 text-brand-500 hover:bg-peach-100 rounded-lg"
+        class="flex items-center text-xl hover:cursor-pointer bg-mart-100 border-solid border-2 p-2 text-brand-500 hover:bg-peach-100 rounded-lg"
       >
-        <i class="fas fa-plus"></i>
+        <i class="fas fa-plus" />
       </button>
       {isOpen() && (
         <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div class="bg-white p-6 rounded-lg shadow-lg w-96">
             <div class="flex justify-between">
               <h2 class="text-xl font-bold mb-4">Create Workout</h2>{" "}
-              <button onClick={cancelForm}>
-                <i class="fa-solid fa-xmark"></i>
+              <button type="button" onClick={cancelForm}>
+                <i class="fa-solid fa-xmark" />
               </button>
             </div>
             <form onSubmit={submitForm}>
               <div class="mb-4">
-                <label class="block text-sm font-medium mb-1">Name</label>
+                <label class="block text-sm font-medium mb-1" for="wkname">
+                  Name
+                </label>
                 <input
+                  id="wkname"
                   name="name"
                   type="text"
                   class="w-full p-2 border rounded-md"
@@ -50,10 +54,11 @@ function CreateForm(props) {
                 />
               </div>
               <div class="mb-4">
-                <label class="block text-sm font-medium mb-1">
+                <label class="block text-sm font-medium mb-1" for="wkdur">
                   Duration (seconds):
                 </label>
                 <input
+                  id="wkdur"
                   name="dur"
                   type="number"
                   min="0"

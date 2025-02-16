@@ -22,7 +22,7 @@ const EditForm = (props) => {
     const { name, dur } = Object.fromEntries(data.entries());
     props.update?.({
       name,
-      dur: parseInt(dur),
+      dur: Number.parseInt(dur),
       id: props.workoutid,
       shouldRemove: false,
     });
@@ -36,7 +36,7 @@ const EditForm = (props) => {
 
   return (
     <>
-      <li class="py-3 sm:py-4" onDblClick={openDialog}>
+      <li class="hover:bg-peach-100" onDblClick={openDialog}>
         <div class="flex items-center">
           <div class="flex-1 min-w-0 ms-4">
             <p class="text-lg font-bold text-mart-900">{name}</p>
@@ -45,8 +45,8 @@ const EditForm = (props) => {
             </p>
           </div>
           <div class="inline-flex items-center text-base font-semibold text-gray-900">
-            <span class="material-symbols-rounded h-6 w-6 text-mooblu-700 cursor-grab">
-              <i class="fa-solid fa-bars"></i>
+            <span class="material-symbols-rounded h-6 w-6 text-mooblu-700">
+              <i class="fa-solid fa-bars cursor-grab" />
             </span>
           </div>
         </div>
@@ -96,6 +96,7 @@ const EditForm = (props) => {
               </div>
             </form>
             <button
+              type="button"
               class="px-4 py-2 bg-rose-600 text-white rounded-md"
               onClick={deleteWorkout}
             >
