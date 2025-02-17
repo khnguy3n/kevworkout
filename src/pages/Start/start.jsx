@@ -41,15 +41,17 @@ const Start = () => {
   };
 
   return (
-    <>
-      <NavBar />
-      <Dial total={total()} reset={resetTrigger()} />
-      <ol>
-        <For each={workouts()}>
-          {(workout) => <ListItem name={workout.name} dur={workout.dur} />}
-        </For>
-      </ol>
-    </>
+    <div class="h-9/10 flex justify-center">
+      <div class="rounded-[20px] max-w-9/10 w-full p-4 3xl:p-![18px] bg-mart-100">
+        <NavBar />
+        <Dial total={total()} reset={resetTrigger()} />
+        <ol>
+          <For each={workouts()}>
+            {(workout) => <ListItem name={workout.name} dur={workout.dur} />}
+          </For>
+        </ol>
+      </div>
+    </div>
   );
 };
 
