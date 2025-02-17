@@ -45,6 +45,14 @@ const Start = () => {
       <div class="rounded-[20px] max-w-9/10 w-full p-4 3xl:p-![18px] bg-mart-100">
         <NavBar />
         <Dial total={total()} reset={resetTrigger()} />
+        <div class="mt-4 flex justify-center gap-4">
+          <button
+            class="px-4 py-2 w-full bg-mooblu-600 text-mart-100 rounded-lg shadow"
+            type="button"
+          >
+            pause
+          </button>
+        </div>
         <ol>
           <For each={workouts()}>
             {(workout) => <ListItem name={workout.name} dur={workout.dur} />}
