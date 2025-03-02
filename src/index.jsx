@@ -2,7 +2,7 @@
 import { render } from "solid-js/web";
 import { Router } from "@solidjs/router";
 import App from "./App.jsx";
-import Start from "./pages/Start/Start.jsx";
+import Start from "./pages/Start/start.jsx";
 import Drag from "./pages/Edit/drag.jsx";
 
 const root = document.getElementById("root");
