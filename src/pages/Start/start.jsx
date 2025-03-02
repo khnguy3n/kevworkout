@@ -1,6 +1,6 @@
 import { createSignal, For } from "solid-js";
 import NavBar from "./NavBar";
-import Dial from "./Dial";
+import Dial from "./dial";
 import ListItem from "./ListItem";
 import LocalStorageService from "../../utils/localStorageService";
 
